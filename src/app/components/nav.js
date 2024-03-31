@@ -24,6 +24,7 @@ export default function Nav() {
           <div className="container mx-auto flex justify-between items-center">
             <div className="text-3xl font-bold">
               <Image
+              className='lg:w-44 md:w-36 w-28'
                 src="/img/logo-white.svg"
                 width={180}
                 height={100}
@@ -41,7 +42,7 @@ export default function Nav() {
                 </a>
               ))}
             </div>
-            <div className="aling-rigth">
+            <div className="aling-rigth text-sm lg:text-md">
               <a
                 href="https://app.aceleraong.com.br"
                 target="_blank"
@@ -63,21 +64,23 @@ export default function Nav() {
         </nav>
       </div>
       <div className='bg-emerald-700 shadow-md p-2 block lg:hidden'>
-        <div className="text-right mt-1 mr-1 lg:hidden">
-          <span className='text-2xl'><MenuButton onClick={handleToggleMenu} menuOpen={menuOpen} /> </span>
-        </div>
-        
-        <div className={`flex flex-col ${menuOpen ? 'block' : 'hidden'}`}>
-            {navigationLinks.map((link) => (
-              <a
-                key={link.name}
-                href={link.href}
-                className="py-1 px-2 mx-2 rounded-xl hover:bg-emerald-600 text-white font-semibold"
-              >
-                {link.name}
-              </a>
-            ))}
+        <div className='container mx-auto'>
+          <div className="text-right mt-1 mr-1 lg:hidden">
+            <span className='text-2xl'><MenuButton onClick={handleToggleMenu} menuOpen={menuOpen} /> </span>
           </div>
+          
+          <div className={`flex flex-col ${menuOpen ? 'block' : 'hidden'}`}>
+              {navigationLinks.map((link) => (
+                <a
+                  key={link.name}
+                  href={link.href}
+                  className="py-1 px-2 rounded-xl hover:bg-emerald-600 text-white font-semibold"
+                >
+                  {link.name}
+                </a>
+              ))}
+            </div>
+        </div>
       </div>
     </div>
   );
